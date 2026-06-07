@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio-pankaj
+    ports:
+      - "3001:80"
+    restart: always

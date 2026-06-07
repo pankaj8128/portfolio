@@ -1,0 +1,97 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 150ms ease;
+  cursor: pointer;
+  text-decoration: none;
+  gap: 0.5rem;
+  /* Exact match: border-2 border-black dark:border-zinc-800 */
+  border: 2px solid var(--neo-border-color);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--neo-border-color);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* === Variants (exact match to original) === */
+.variant-default {
+  background: var(--teal-500);
+  color: #fff;
+}
+.variant-default:hover {
+  background: var(--teal-600);
+}
+
+.variant-neutral {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+.variant-neutral:hover {
+  background: var(--bg-tertiary);
+}
+
+.variant-zinc {
+  background: var(--gray-200);
+  color: var(--text-primary);
+}
+.variant-zinc:hover {
+  background: var(--bg-tertiary);
+}
+
+/* === Sizes (exact match) === */
+.size-default {
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+.size-sm {
+  height: 2.25rem;
+  padding: 0.25rem 0.75rem;
+}
+.size-lg {
+  height: 2.75rem;
+  padding: 0.5rem 2rem;
+}
+.size-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
+
+/* === Shadows (exact match: 4px 4px, translate(4px,4px) on hover) === */
+.shadow-default {
+  box-shadow: var(--neo-shadow);
+}
+.shadow-default:hover {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+
+.shadow-sm {
+  box-shadow: var(--neo-shadow-sm);
+}
+.shadow-sm:hover {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+.shadow-reverse {
+  box-shadow: none;
+}
+.shadow-reverse:hover {
+  box-shadow: var(--neo-shadow);
+  transform: translate(-4px, -4px);
+}
+
+.shadow-none {
+  box-shadow: none;
+}

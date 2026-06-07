@@ -1,0 +1,277 @@
+/* Exact match to original ProjectCard structure */
+.card {
+  /* border-4 border-black dark:border-zinc-800 + shadow-neobrutalism */
+  border: 4px solid var(--neo-border-color);
+  box-shadow: var(--neo-shadow);
+  background: var(--card-bg);
+  overflow: hidden;
+}
+
+/* Category bar at the top */
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 4px solid var(--neo-border-color);
+}
+
+.categoryText {
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+@media (min-width: 640px) {
+  .categoryHeader {
+    padding: 1rem 1.5rem;
+  }
+  .categoryText {
+    font-size: 1.125rem;
+  }
+}
+
+/* Header: title + summary */
+.header {
+  padding: 1rem 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.summary {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 640px) {
+  .header {
+    padding: 1.5rem 1.5rem 0;
+    gap: 1rem;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .summary {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    padding: 2rem 2rem 0;
+  }
+  .title {
+    font-size: 1.875rem;
+  }
+  .summary {
+    font-size: 1.125rem;
+  }
+}
+
+/* Body sections */
+.body {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .body {
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .body {
+    padding: 3rem 2rem;
+    gap: 2rem;
+  }
+}
+
+/* Description box: border-2, gray bg */
+.descriptionBox {
+  border: 2px solid var(--neo-border-color);
+  background: var(--gray-100);
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .descriptionBox {
+    padding: 1.5rem;
+  }
+}
+
+.description {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--gray-800);
+}
+
+@media (min-width: 640px) {
+  .description {
+    font-size: 1rem;
+  }
+}
+
+/* Section headings: font-heading + font-black */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .section {
+    gap: 1rem;
+  }
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+@media (min-width: 640px) {
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Tech stack badges */
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .techStack {
+    gap: 0.75rem;
+  }
+}
+
+.techBadge {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .techBadge {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Key Features Grid: exact match with teal border + dot */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .featuresGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.featureItem {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+  padding: 0.625rem 0.75rem;
+  /* border-2 border-teal-500 + bg-teal-50 */
+  border: 2px solid var(--teal-500);
+  background: var(--teal-50);
+}
+
+@media (min-width: 640px) {
+  .featureItem {
+    align-items: center;
+    padding: 0.75rem;
+  }
+}
+
+.featureDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  flex-shrink: 0;
+  background: var(--teal-500);
+}
+
+.featureText {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+@media (min-width: 640px) {
+  .featureText {
+    font-size: 1rem;
+  }
+}
+
+/* Footer: action buttons */
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0 1rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .footer {
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0 1.5rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding: 0 2rem 3rem;
+  }
+}
+
+.actionBtn {
+  flex: 1;
+  /* border-[3px] py-4 text-base font-extrabold */
+  border-width: 3px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+@media (min-width: 640px) {
+  .actionBtn {
+    padding: 1.5rem;
+    font-size: 1.125rem;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+  cursor: not-allowed;
+}
