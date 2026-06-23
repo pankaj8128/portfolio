@@ -36,7 +36,17 @@ export default function Contact() {
     )}&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
     )}`;
-    window.open(mailtoLink, '_blank');
+    
+    // Use window.location.href instead of window.open for mailto links
+    window.location.href = mailtoLink;
+    
+    // Clear the form after triggering the email client
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    });
   };
 
   return (
