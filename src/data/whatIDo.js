@@ -3,19 +3,19 @@ export const whatIDo = [
     icon: "server",
     title: "Backend Development",
     description:
-      "I build robust, scalable server-side applications using Node.js, Express, Django, and FastAPI — with a focus on clean architecture, REST APIs, and real-time communication via WebSockets.",
+      "I build robust, scalable server-side applications using Node.js, Express, Django, and FastAPI — with a focus on clean architecture, secure REST APIs, and real-time communication via WebSockets.",
   },
   {
     icon: "layout",
-    title: "Full-Stack Web Development",
+    title: "Full-Stack & Mobile Development",
     description:
-      "I develop end-to-end web applications from interactive React frontends to production-grade backends, handling authentication, data flow, and deployment across the entire stack.",
+      "I develop end-to-end web and mobile applications from interactive React and React Native frontends to production-grade backends, handling authentication, data flow, and deployment across the entire stack.",
   },
   {
     icon: "database",
     title: "Database Design & Management",
     description:
-      "I design efficient relational schemas with MySQL, PostgreSQL, and MariaDB — optimizing queries, ensuring data integrity, and building robust data layers for complex applications.",
+      "I design efficient schemas with MongoDB, PostgreSQL, MySQL, and SQLite — optimizing queries, ensuring data integrity, and building robust data layers for complex applications.",
   },
   {
     icon: "bot",

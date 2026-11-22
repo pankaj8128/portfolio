@@ -2,6 +2,7 @@ import { Download } from 'lucide-react';
 import { personalInfo } from '../data/personal';
 import { experiences } from '../data/experience';
 import { education } from '../data/education';
+import { achievements } from '../data/achievements';
 import { technicalSkills, otherSkills, knowledge } from '../data/skills';
 import NeoButton from '../components/ui/NeoButton';
 import NeoBadge from '../components/ui/NeoBadge';
@@ -15,6 +16,7 @@ const tocSections = [
   { id: 'summary', title: 'Summary' },
   { id: 'experience', title: 'Experience' },
   { id: 'education', title: 'Education' },
+  { id: 'achievements', title: 'Achievements' },
   { id: 'technical-skills', title: 'Technical Skills' },
   { id: 'other-skills', title: 'Other Skills' },
   { id: 'knowledges', title: 'Knowledges' },
@@ -66,13 +68,12 @@ export default function Resume() {
           <section id="summary" className={`${styles.section} scroll-mt`}>
             <h2 className={styles.sectionTitle}>Summary:</h2>
             <p className={styles.text}>
-              Driven Computer Engineering student with strong full-stack development skills and a
-              focus on building production-grade, scalable applications. Experienced in designing
-              real-time systems with WebSockets, architecting RESTful backends with Node.js and
-              Python, and building interactive frontends with React. Proficient in relational
-              database design, Docker containerization, and clean code practices. Solved 350+
-              problems on LeetCode demonstrating strong DSA proficiency. Seeking challenging
-              opportunities to apply engineering fundamentals to impactful software projects.
+              Detail-oriented Computer Engineering student with hands-on full-stack development
+              experience across mobile applications, real-time event-driven systems, and cloud
+              deployments. Proven track record securing production APIs, building modular UI
+              design systems, integrating Generative AI models, and optimizing microservices
+              across multi-repository ecosystems. Solved 350+ problems on LeetCode with strong
+              DSA fundamentals. Seeking challenging opportunities to build impactful software.
             </p>
           </section>
 
@@ -86,6 +87,16 @@ export default function Resume() {
           <section id="education" className={`${styles.section} scroll-mt`}>
             <h2 className={styles.sectionTitle}>Education:</h2>
             <Timeline data={educationsTimeline} />
+          </section>
+
+          {/* Achievements */}
+          <section id="achievements" className={`${styles.section} scroll-mt`}>
+            <h2 className={styles.sectionTitle}>Achievements:</h2>
+            <ul className={styles.achievementList}>
+              {achievements.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </section>
 
           {/* Technical Skills */}

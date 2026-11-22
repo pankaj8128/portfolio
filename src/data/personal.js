@@ -4,7 +4,7 @@ export const personalInfo = {
   tagline: "Full-Stack Developer",
   heroHeading: ["Building Systems", "That Scale."],
   heroSubtitle:
-    "Engineering robust full-stack solutions with clean architecture,\nfrom real-time multiplayer engines to AI-powered platforms.",
+    "Engineering robust full-stack solutions with clean architecture,\nfrom real-time multiplayer engines to AI-powered platforms and secure production APIs.",
   location: "Pune, Maharashtra, India",
   phone: "+919607827596",
   email: "pankajjagadale28@gmail.com",

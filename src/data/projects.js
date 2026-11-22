@@ -6,7 +6,7 @@ export const projects = [
     summary:
       "A full-featured Skribbl.io clone with server-authoritative game logic, WebSocket-based real-time drawing sync, public matchmaking, and advanced canvas tools.",
     description:
-      "Designed a server-authoritative real-time multiplayer drawing and guessing game. Features a public matchmaking (quick-play) flow that auto-pairs players into lobbies, low-latency WebSocket synchronization for drawing tools with dynamic brush sizing and an optimized recursive Flood Fill paint engine. Built a modular room-based architecture with dynamic game settings, secure ownership transfers, and a deterministic scoring and leaderboard system with active timer shrinkage. Containerized with Docker using multi-stage builds.",
+      "Designed a server-authoritative real-time multiplayer drawing and guessing game. Features a public matchmaking (quick-play) flow that auto-pairs players into lobbies, low-latency WebSocket synchronization for drawing tools with dynamic brush sizing and an optimized recursive Flood Fill paint engine. Built a modular room-based architecture with dynamic game settings, secure ownership transfers, and a deterministic scoring and leaderboard system with active timer shrinkage. Containerized with Docker using multi-stage builds, deployed on AWS EC2 behind an Nginx reverse proxy, and shipped with an automated GitHub Actions CI/CD pipeline.",
     techStack: [
       "Node.js",
       "Express.js",
@@ -15,6 +15,9 @@ export const projects = [
       "JavaScript",
       "EJS",
       "Docker",
+      "AWS EC2",
+      "Nginx",
+      "GitHub Actions",
     ],
     keyFeatures: [
       "Public matchmaking (Quick Play) with auto-pairing",
@@ -22,6 +25,7 @@ export const projects = [
       "Optimized recursive Flood Fill paint engine",
       "Dynamic game settings with ownership transfers",
       "Multi-factor score calculation with timer shrinkage",
+      "AWS EC2 deployment behind Nginx with GitHub Actions CI/CD",
       "Cross-device responsive canvas rendering",
     ],
     githubUrl: "https://github.com/pankaj8128/scribbl",
@@ -35,7 +39,7 @@ export const projects = [
       "A MERN-stack social posting platform with JWT authentication, image uploads, public feed with pagination, likes, comments, and sorting.",
     description:
       "Built a mini social post application where users can create accounts, post text/images, view a public feed, like posts, and comment. Features JWT-based authentication with secure signup/login, image upload support, a paginated public feed with sorting (All Posts, Most Liked, Most Commented), like/unlike with user details, comment threads, and the ability to delete own posts.",
-    techStack: ["React", "Vite", "Node.js", "Express.js", "MongoDB", "JWT", "CSS"],
+    techStack: ["React", "Vite", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "CSS"],
     keyFeatures: [
       "JWT-based authentication with signup/login",
       "Image upload with text post support",
@@ -52,17 +56,17 @@ export const projects = [
     title: "AI-BASED CHILD MONITORING",
     category: "Web Development",
     summary:
-      "A Django-based multi-tenant platform connecting parents and daycare providers with AI-driven parenting insights via Google Gemini.",
+      "A Django-based multi-tenant SaaS platform connecting parents, daycare providers, and administrators with AI-driven growth reports via Google Gemini.",
     description:
-      "Built a role-based multi-tenant platform connecting parents and daycare providers with separate dashboards for real-time communication. Integrated AI-driven recommendation system using Google Gemini AI to generate personalized parenting insights and milestone tracking. Structured the backend for extensibility, enabling future analytics and reporting.",
+      "Built a role-based multi-tenant SaaS platform connecting parents, daycare providers, and administrators with dedicated dashboards for real-time communication. Integrated Google Gemini AI to analyze child developmental milestone data and generate personalized growth reports. Structured the backend for extensibility, enabling future analytics and reporting.",
     techStack: ["Python", "Django", "SQLite", "Google Gemini AI", "HTML/CSS", "JavaScript"],
     keyFeatures: [
-      "Role-based multi-tenant architecture",
+      "Role-based multi-tenant SaaS architecture",
+      "Dedicated dashboards for parents, daycares, and administrators",
       "Real-time parent-provider communication",
-      "AI-driven personalized parenting insights",
+      "AI-generated personalized growth reports from milestone data",
       "Accurate cross-timezone milestone tracking",
       "Extensible backend for future analytics",
-      "Separate dashboards for parents and providers",
     ],
     githubUrl: "https://github.com/pnkaj8128/Ai_Based_Child_Monitoring_System",
     liveUrl: "",
