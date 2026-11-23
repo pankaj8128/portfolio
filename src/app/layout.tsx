@@ -1,13 +1,11 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Manrope, JetBrains_Mono } from 'next/font/google'
-import { ThemeProvider } from "@/components/layout/theme-provider"
 import { SITE_METADATA } from "@/lib/site-metadata"
 import { AmbientCursor } from "@/components/layout/ambient-cursor"
 import { PremiumBackground } from '@/components/layout/premium-background'
 import { AccessibilityProvider } from "@/contexts/accessibility-context"
 import { NavigationHubProvider } from "@/contexts/navigation-hub-context"
-import { AccessibilityTools } from "@/components/blocks/accessibility-tools"
 import { ClientShell } from "@/components/layout/client-shell"
 
 import './globals.css'
@@ -48,9 +46,12 @@ export const metadata: Metadata = {
 		images: ["/logo.png"],
 	},
 	icons: {
-		icon: SITE_METADATA.favicon,
-		shortcut: SITE_METADATA.favicon,
-		apple: SITE_METADATA.favicon,
+		icon: [
+			{ url: "/favicon.ico", sizes: "any" },
+			{ url: "/favicon.svg", type: "image/svg+xml" },
+		],
+		shortcut: "/favicon.ico",
+		apple: "/logo.png",
 	},
 	alternates: {
 		canonical: "/",
@@ -102,31 +103,23 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang="en" className={`${manrope.variable} ${jetbrains.variable}`} suppressHydrationWarning>
+		<html lang="en" className={`dark ${manrope.variable} ${jetbrains.variable} a11y-high-contrast a11y-large-text`} suppressHydrationWarning>
 			<head>
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				/>
 			</head>
-			<body className="font-sans antialiased" suppressHydrationWarning>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="dark"
-					enableSystem={false}
-					disableTransitionOnChange
-				>
-					<AccessibilityProvider>
-						<NavigationHubProvider>
-							<AmbientCursor />
-							<PremiumBackground />
-							<ClientShell>
-								{children}
-							</ClientShell>
-							<AccessibilityTools />
-						</NavigationHubProvider>
-					</AccessibilityProvider>
-				</ThemeProvider>
+			<body className="font-sans antialiased dark" suppressHydrationWarning>
+				<AccessibilityProvider>
+					<NavigationHubProvider>
+						<AmbientCursor />
+						<PremiumBackground />
+						<ClientShell>
+							{children}
+						</ClientShell>
+					</NavigationHubProvider>
+				</AccessibilityProvider>
 			</body>
 		</html>
 	);

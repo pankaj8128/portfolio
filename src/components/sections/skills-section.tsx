@@ -6,8 +6,21 @@ import { skillCategories } from "@/lib/bio-data"
 import { cinematicReveal, staggerContainer, headerReveal } from "@/lib/animations"
 import { useIsMobile, useAutoHighlight } from "@/hooks/use-mobile-view-effect"
 import * as SiIcons from "react-icons/si";
-import { LuHash, LuWorkflow, LuDatabaseZap, LuNetwork } from "react-icons/lu";
-import { FaJava } from "react-icons/fa";
+import { 
+  LuHash, 
+  LuWorkflow, 
+  LuDatabaseZap, 
+  LuNetwork, 
+  LuSmartphone, 
+  LuPalette, 
+  LuCpu, 
+  LuKeyRound, 
+  LuShieldCheck, 
+  LuZap, 
+  LuBrainCircuit, 
+  LuScanText 
+} from "react-icons/lu";
+import { FaJava, FaAws } from "react-icons/fa";
 import { VscAzure } from "react-icons/vsc";
 import { PiFileSql } from "react-icons/pi";
 import { SectionHeader } from "../layout/section-header"
@@ -26,37 +39,59 @@ const getSkillIcon = (skillName: string) => {
     "java": FaJava,
     "azure": VscAzure,
     "sql": PiFileSql,
+    "aws ec2": FaAws,
+    "aws": FaAws,
 
-    // Frameworks / Web
+    // Web / Frontend / Mobile
+    "javascript (es6+)": "SiJavascript",
+    "javascript": "SiJavascript",
+    "typescript": "SiTypescript",
+    "html5 / css3": "SiHtml5",
+    "react": "SiReact",
+    "react native": "SiReact",
+    "vite": "SiVite",
+    "responsive design": LuSmartphone,
+    "canvas api": LuPalette,
+    "tailwind css": "SiTailwindcss",
+
+    // Frameworks & Backend
     "next.js": "SiNextdotjs",
     "node.js": "SiNodedotjs",
     ".net core": "SiDotnet",
+    "express.js": "SiExpress",
+    "django": "SiDjango",
     "fastapi": "SiFastapi",
-    "tailwind css": "SiTailwindcss",
+    "rest api design": LuWorkflow,
+    "websockets": "SiSocketdotio",
+
     // Languages
     "c#": "SiCsharp",
     "c++": "SiCplusplus",
-    "typescript": "SiTypescript",
-    "javascript": "SiJavascript",
-    // Data Science & AI
-    "scikit-learn": "SiScikitlearn",
-    "hugging face": "SiHuggingface",
-    "langchain": "SiLangchain",
-    "pytorch": "SiPytorch",
-    "tensorflow": "SiTensorflow",
-    "pandas": "SiPandas",
-    "numpy": "SiNumpy",
-    // Data Engineering
-    "apache spark": "SiApachespark",
-    "airflow": "SiApacheairflow",
-    "kafka": "SiApachekafka",
-    "gcp": "SiGooglecloud",
-    "aws": "SiAmazonwebservices",
-    "ci/cd": "SiGithubactions",
-    // Database
+    "python": "SiPython",
+
+    // Databases
     "postgresql": "SiPostgresql",
     "mysql": "SiMysql",
     "mongodb": "SiMongodb",
+    "sqlite": "SiSqlite",
+    "mongoose": "SiMongoose",
+
+    // Cloud, DevOps, Tools
+    "docker": "SiDocker",
+    "nginx": "SiNginx",
+    "github actions": "SiGithubactions",
+    "ci/cd": "SiGithubactions",
+    "git / github": "SiGit",
+    "linux": "SiLinux",
+
+    // Systems & Security
+    "system design": LuCpu,
+    "jwt authentication": "SiJsonwebtokens",
+    "session-based auth": LuKeyRound,
+    "role-based access control": LuShieldCheck,
+    "real-time systems": LuZap,
+    "genai integration": LuBrainCircuit,
+    "tesseract ocr": LuScanText,
   };
 
   const lookup = specialCases[name];
@@ -157,18 +192,17 @@ const SkillPill = memo(({ skill, isActive }: { skill: string, isActive: boolean 
 
   return (
     <span
-      className={`inline-flex items-center rounded-sm border px-2 py-1 font-mono text-[0.6875rem] lg:text-[0.78125rem] 
+      className={`inline-flex items-center rounded-sm border px-2.5 py-1 font-mono text-[0.6875rem] lg:text-[0.78125rem] 
         whitespace-nowrap transition-all duration-300 ease-out ${isActive
-          ? "border-primary/40 text-foreground bg-primary/5 -translate-y-0.5 shadow-sm"
-          : "border-border text-muted-foreground translate-y-0"
+          ? "border-primary/50 text-foreground bg-primary/10 -translate-y-0.5 shadow-sm"
+          : "border-border text-muted-foreground translate-y-0 hover:border-primary/30 hover:text-foreground"
         }`}
     >
       <span
-        className={`inline-flex items-center justify-center overflow-hidden transition-all duration-500 ease-out shrink-0 ${isActive ? "w-3 lg:w-3.5 mr-1.5 opacity-100" : "w-0 mr-0 opacity-0"
-          }`}
+        className="inline-flex items-center justify-center shrink-0 w-3.5 h-3.5 mr-1.5 opacity-80 group-hover:opacity-100"
       >
         <Icon
-          className="shrink-0 text-primary h-3 w-3 lg:h-3.5 lg:w-3.5"
+          className="shrink-0 text-primary h-3.5 w-3.5"
           aria-hidden="true"
         />
       </span>

@@ -1,7 +1,7 @@
 "use client"
 
-import { useRef, useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useRef } from "react"
+import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { TerminalCard } from "../blocks/terminal-card"
@@ -31,29 +31,9 @@ interface HeroBentoProps {
 export function HeroBento({ index }: HeroBentoProps) {
   const { mode } = useMode()
   const content = HeroContent[mode as keyof typeof HeroContent] || HeroContent.generalist
-  const [isHovered, setIsHovered] = useState(false)
   const isMobile = useIsMobile()
   const nameRef = useRef<HTMLSpanElement>(null)
   const isNameActive = useAutoHighlight(nameRef, isMobile)
-  const [isAutoExpanded, setIsAutoExpanded] = useState(false)
-  const [hasInteracted, setHasInteracted] = useState(false)
-  const [isInitialAnimationComplete, setIsInitialAnimationComplete] = useState(false)
-
-  useEffect(() => {
-    if (isMobile) return
-    if (hasInteracted) return
-
-    const expandTimer = setTimeout(() => setIsAutoExpanded(true), 1200)
-    const collapseTimer = setTimeout(() => setIsAutoExpanded(false), 3000)
-
-    return () => {
-      clearTimeout(expandTimer)
-      clearTimeout(collapseTimer)
-    }
-  }, [isMobile, hasInteracted])
-
-  const shouldExpand = isHovered || isNameActive || (isAutoExpanded && !isMobile)
-
 
   return (
     <section id="home" className="mx-auto max-w-7xl px-4 pt-32 pb-16 md:pt-36 lg:pt-40 lg:pb-24" aria-labelledby="hero-heading">
@@ -97,81 +77,9 @@ export function HeroBento({ index }: HeroBentoProps) {
               <br />
               <motion.span
                 ref={nameRef}
-                className="text-primary inline-flex cursor-pointer select-none"
-                onHoverStart={() => {
-                  if (isMobile) return
-                  setIsHovered(true)
-                  setHasInteracted(true)
-                  setIsAutoExpanded(false)
-                }}
-                onHoverEnd={() => !isMobile && setIsHovered(false)}
-                onTap={() => {
-                  setIsHovered(!isHovered)
-                  setHasInteracted(true)
-                  setIsAutoExpanded(false)
-                }}
-                layout
+                className="text-primary inline-flex select-none"
               >
-                <motion.span
-                  layout
-                  initial={{ opacity: 0, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, filter: "blur(0px)" }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >P</motion.span>
-                <AnimatePresence>
-                  {shouldExpand && isInitialAnimationComplete && (
-                    <motion.span
-                      initial={{ opacity: 0, width: 0 }}
-                      animate={{ opacity: 1, width: "auto" }}
-                      exit={{ opacity: 0, width: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      ankaj
-                    </motion.span>
-                  )}
-                </AnimatePresence>
-
-                <AnimatePresence>
-                  {shouldExpand && isInitialAnimationComplete && (
-                    <motion.span
-                      initial={{ opacity: 0, width: 0 }}
-                      animate={{ opacity: 1, width: "auto" }}
-                      exit={{ opacity: 0, width: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden whitespace-pre"
-                    >
-                      {" "}
-                    </motion.span>
-                  )}
-                </AnimatePresence>
-
-                <motion.span
-                  layout
-                  initial={{ opacity: 0, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, filter: "blur(0px)" }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                >J</motion.span>
-                <AnimatePresence>
-                  {shouldExpand && isInitialAnimationComplete && (
-                    <motion.span
-                      initial={{ opacity: 0, width: 0 }}
-                      animate={{ opacity: 1, width: "auto" }}
-                      exit={{ opacity: 0, width: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      agadale
-                    </motion.span>
-                  )}
-                </AnimatePresence>
-                <motion.span
-                  layout
-                  initial={{ opacity: 0, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, filter: "blur(0px)" }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  onAnimationComplete={() => setIsInitialAnimationComplete(true)}
-                >.</motion.span>
+                <TextBlurIn as={motion.span} delay={0.2}>Pankaj.</TextBlurIn>
               </motion.span>
             </h1>
             <TextBlurIn className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground lg:text-lg">
@@ -215,7 +123,7 @@ export function HeroBento({ index }: HeroBentoProps) {
               current status
             </span>
             <span className="text-sm font-medium text-foreground">
-              Available for Freelance
+              Available for Full-Time Opportunities
             </span>
           </div>
         </GlowCard>

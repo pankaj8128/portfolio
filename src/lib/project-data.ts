@@ -53,7 +53,8 @@ export const projects: Project[] = [
 			"Responsive design for all devices",
 		],
 		tags: ["React", "Vite", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT"],
-		live: "https://social.panky.qzz.io/",
+		github: "https://github.com/pankaj8128/social",
+		live: "https://social-iota-sooty.vercel.app/",
 		mode: ["web"],
 	},
 	{

@@ -1,13 +1,14 @@
 "use client"
 
 import { motion, steps } from "framer-motion"
-import { Github, Linkedin, Mail, Code2 } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
+import { LeetCodeIcon } from "../blocks/leetcode-icon"
 import { MagneticButton } from "../blocks/magnetic-button"
 
 export const socialLinks = [
   { icon: Github, label: "GitHub", href: "https://github.com/pankaj8128", color: "hover:text-white hover:bg-[#24292e] hover:border-[#24292e]" },
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/pankaj8128", color: "hover:text-white hover:bg-[#0077b5] hover:border-[#0077b5]" },
-  { icon: Code2, label: "LeetCode", href: "https://leetcode.com/u/pankaj8128", color: "hover:text-white hover:bg-[#FFA116] hover:border-[#FFA116]" },
+  { icon: LeetCodeIcon, label: "LeetCode", href: "https://leetcode.com/u/pankaj8128", color: "hover:text-white hover:bg-[#FFA116] hover:border-[#FFA116]" },
   { icon: Mail, label: "Email", href: "mailto:pankajjagadale28@gmail.com", color: "hover:text-white hover:bg-[#EA4335] hover:border-[#EA4335]" },
 ]
 

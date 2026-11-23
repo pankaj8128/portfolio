@@ -25,8 +25,8 @@ const STORAGE_KEY = "a11y-settings";
 
 const defaults: AccessibilityState = {
   reducedMotion: false,
-  highContrast: false,
-  largeText: false,
+  highContrast: true,
+  largeText: true,
 };
 
 // ─── Context ─────────────────────────────────────────────────
@@ -66,6 +66,9 @@ export function AccessibilityProvider({
       ...prev,
       ...stored,
       reducedMotion: stored.reducedMotion ?? mq.matches,
+      // Always keep high contrast and large text on — these are site defaults
+      highContrast: true,
+      largeText: true,
     }));
 
     const onChange = (e: MediaQueryListEvent) => {

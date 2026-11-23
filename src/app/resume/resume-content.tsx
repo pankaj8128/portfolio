@@ -316,15 +316,67 @@ function ExperienceCard({
         {exp.description}
       </p>
 
-      {exp.highlights && (
-        <ul className="mb-4 flex flex-col gap-2">
-          {exp.highlights.map((h) => (
-            <li key={h} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground text-justify">
-              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-              {h}
-            </li>
+      {/* If multi-role tree/branch structure (e.g. CyberShield) */}
+      {exp.roles && exp.roles.length > 0 ? (
+        <div className="relative pl-6 space-y-6 mb-4 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-primary before:via-primary/50 before:to-border">
+          {exp.roles.map((role, rIdx) => (
+            <div key={role.role} className="relative group/role">
+              {/* Tree Node Dot */}
+              <div className="absolute -left-[23px] top-1.5 flex items-center justify-center">
+                <span className={`h-3 w-3 rounded-full border-2 border-background transition-colors ${
+                  rIdx === 0 ? "bg-primary ring-2 ring-primary/30" : "bg-muted-foreground/60"
+                }`} />
+              </div>
+
+              {/* Role Header */}
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs text-primary/70">├──</span>
+                  <h4 className="text-sm font-semibold text-foreground">{role.role}</h4>
+                  {rIdx === 0 && (
+                    <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 font-mono text-[0.5625rem] text-emerald-400 border border-emerald-500/20">
+                      Active
+                    </span>
+                  )}
+                </div>
+                <span className="font-mono text-[0.625rem] text-muted-foreground flex items-center gap-1.5">
+                  <Calendar className="h-3 w-3" strokeWidth={1.5} />
+                  {role.period}
+                </span>
+              </div>
+
+              {role.description && (
+                <p className="text-xs text-muted-foreground mb-2 pl-4">
+                  {role.description}
+                </p>
+              )}
+
+              {role.highlights && role.highlights.length > 0 && (
+                <ul className="flex flex-col gap-1.5 pl-4">
+                  {role.highlights.map((h) => (
+                    <li key={h} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground text-justify">
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/70" aria-hidden="true" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           ))}
-        </ul>
+        </div>
+      ) : (
+        <>
+          {exp.highlights && (
+            <ul className="mb-4 flex flex-col gap-2">
+              {exp.highlights.map((h) => (
+                <li key={h} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground text-justify">
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  {h}
+                </li>
+              ))}
+            </ul>
+          )}
+        </>
       )}
 
       {exp.tags && (

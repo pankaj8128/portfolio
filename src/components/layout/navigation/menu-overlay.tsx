@@ -3,9 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { useTheme } from "next-themes"
-import { flushSync } from "react-dom"
-import { Sun, Moon, FileText, Download, ChevronRight } from "lucide-react"
+import { FileText, Download, ChevronRight } from "lucide-react"
 import { exploreLinks, RESUMES } from "@/config/navigation-data"
 import { socialLinks } from "@/components/layout/footer"
 import { useIsMobile, useAtBottomHighlight } from "@/hooks/use-mobile-view-effect"
@@ -54,52 +52,10 @@ function NavStaggerItem({ children, variants, className = "" }: { children: Reac
 }
 
 export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
-  const { setTheme, resolvedTheme } = useTheme()
   const [showResumes, setShowResumes] = useState(false)
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
   const isMobile = useIsMobile()
   const isAtBottom = useAtBottomHighlight(isMobile, 30)
-
-  const toggleTheme = (e: React.MouseEvent) => {
-    const newTheme = resolvedTheme === "dark" ? "light" : "dark"
-
-    if (!document.startViewTransition) {
-      setTheme(newTheme)
-      return
-    }
-
-    const x = e.clientX
-    const y = e.clientY
-    const endRadius = Math.hypot(
-      Math.max(x, innerWidth - x),
-      Math.max(y, innerHeight - y)
-    )
-
-    const transition = document.startViewTransition(() => {
-      flushSync(() => {
-        setTheme(newTheme)
-      })
-    })
-
-    transition.ready.then(() => {
-      const clipPath = [
-        `circle(0px at ${x}px ${y}px)`,
-        `circle(${endRadius}px at ${x}px ${y}px)`,
-      ]
-
-      document.documentElement.animate(
-        {
-          clipPath: clipPath,
-          filter: ["blur(20px)", "blur(0px)"],
-        },
-        {
-          duration: 600,
-          easing: "ease-in-out",
-          pseudoElement: "::view-transition-new(root)",
-        }
-      )
-    })
-  }
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     const isAnchor = href.startsWith("#") || href.startsWith("/#")
@@ -143,7 +99,7 @@ export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
           exit="closed"
           variants={overlayVariants}
           data-nav-overlay
-          className="fixed inset-0 z-[150] flex flex-col bg-background/80 backdrop-blur-[40px] px-6 py-24 md:px-20 md:py-32 overflow-y-auto border-b border-border/50 shadow-2xl"
+          className="fixed inset-0 z-[150] flex flex-col bg-background px-6 py-24 md:px-20 md:py-32 overflow-y-auto border-b border-border shadow-2xl"
         >
           <div className="mx-auto flex w-full max-w-7xl flex-col lg:flex-row gap-12 lg:gap-32">
 
@@ -221,31 +177,6 @@ export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                   </span>
                   <div className="relative">
                     <div className="flex flex-row gap-2">
-                      <button
-                        onClick={toggleTheme}
-                        className="flex-1 flex items-center justify-center gap-2 rounded-sm border border-border bg-secondary/40 py-3 font-mono text-xs text-foreground hover:border-primary transition-colors group overflow-hidden"
-                      >
-                        <div className="relative h-4 w-4">
-                          <AnimatePresence mode="wait">
-                            <motion.div
-                              key={resolvedTheme}
-                              initial={{ y: 20, opacity: 0, rotate: -45 }}
-                              animate={{ y: 0, opacity: 1, rotate: 0 }}
-                              exit={{ y: -20, opacity: 0, rotate: 45 }}
-                              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                              className="absolute inset-0 flex items-center justify-center"
-                            >
-                              {resolvedTheme === "dark" ? (
-                                <Sun size={14} className="text-amber-500 fill-amber-500/10" />
-                              ) : (
-                                <Moon size={14} className="text-blue-400 fill-blue-400/10" />
-                              )}
-                            </motion.div>
-                          </AnimatePresence>
-                        </div>
-                        Theme
-                      </button>
-
                       <button
                         onClick={() => setShowResumes(!showResumes)}
                         className={`flex-1 flex items-center justify-center gap-2 rounded-sm border border-border py-3 font-mono text-xs transition-all ${showResumes ? "bg-primary text-primary-foreground border-primary" : "bg-secondary/40 text-foreground hover:border-primary"

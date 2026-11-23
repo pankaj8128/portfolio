@@ -130,35 +130,12 @@ body {
   transition: font-size 0.3s ease;
 }
 
-/* High Contrast: force muted-foreground to match foreground, raise borders,
-   remove translucency so text never sits on a moving background. */
-html.a11y-high-contrast {
-  --muted-foreground: var(--foreground);
-  --border: 40 10% 28%;
-  --input: 40 10% 28%;
-  --card: 40 8% 6%;
-}
-
-html.a11y-high-contrast .bg-card\/40,
-html.a11y-high-contrast .bg-card\/50,
-html.a11y-high-contrast .bg-card\/80,
-html.a11y-high-contrast .bg-card\/90,
-html.a11y-high-contrast .bg-card\/95,
-html.a11y-high-contrast .glass-premium-bg {
-  background-color: hsl(var(--card)) !important;
-}
-
-html.a11y-high-contrast .backdrop-blur-sm,
-html.a11y-high-contrast .backdrop-blur-md,
-html.a11y-high-contrast .backdrop-blur-xl,
-html.a11y-high-contrast .backdrop-blur-\[40px\] {
-  -webkit-backdrop-filter: none !important;
-  backdrop-filter: none !important;
-}
-
-html.a11y-high-contrast .text-muted-foreground\/50,
-html.a11y-high-contrast .text-muted-foreground\/30 {
-  color: hsl(var(--foreground) / 0.75) !important;
+/* High Contrast: force muted-foreground to match foreground */
+html.a11y-high-contrast,
+.dark.a11y-high-contrast,
+html.a11y-high-contrast.dark,
+html.a11y-high-contrast .dark {
+  --muted-foreground: var(--foreground) !important;
 }
 
 /* Reduced Motion: neutralise CSS animation/transition loops. */

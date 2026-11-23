@@ -24,6 +24,13 @@ export interface SkillCategory {
   skills: string[]
 }
 
+export interface ExperienceRole {
+  role: string
+  period: string
+  description?: string
+  highlights?: string[]
+}
+
 export interface Experience {
   role: string
   company: string
@@ -32,6 +39,7 @@ export interface Experience {
   description: string
   tags?: string[]
   highlights?: string[]
+  roles?: ExperienceRole[]
 }
 
 export const HeroContent: HeroContent = {
@@ -54,15 +62,40 @@ export const education: Education[] = [
   {
     degree: "B.Tech — Computer Engineering",
     school: "AISSMS INSTITUTE OF INFORMATION TECHNOLOGY",
-    location: "Pune, India",
+    location: "Pune, Maharashtra, India",
     period: "2023 – 2027 (Expected)",
     focus: "Computer Engineering · CGPA 7.53 / 10",
     description:
-      "Currently in the 7th semester, building a strong foundation in computer science fundamentals including Data Structures, Algorithms, DBMS, OOP, System Design, and full-stack web development.",
+      "Currently pursuing Bachelor of Technology in Computer Engineering, building a strong foundation in computer science fundamentals including Data Structures, Algorithms, DBMS, OOP, System Design, and full-stack web development.",
     highlights: [
       "Strong foundation in DSA, DBMS, OOP, System Design, and full-stack web development.",
       "Solved 350+ algorithmic problems on LeetCode alongside coursework.",
       "Vice President of Technology at CyberShield, the college cybersecurity club.",
+    ],
+  },
+  {
+    degree: "Higher Secondary Certificate (HSC — 12th Board)",
+    school: "Azad Vidyalaya and Jr. College, Kasegaon",
+    location: "Maharashtra, India",
+    period: "2021 – 2023",
+    focus: "Maharashtra State Board · 70.5% | MHT-CET: 97.27 Percentile",
+    description:
+      "Completed Higher Secondary Certificate (12th Board) examination from the Maharashtra State Board with 70.5% and scored a 97.27 percentile in the MHT-CET competitive entrance examination.",
+    highlights: [
+      "Achieved 97.27 percentile in the MHT-CET competitive entrance examination (2023).",
+      "Secured 70.5% in the Maharashtra State Board HSC examination.",
+    ],
+  },
+  {
+    degree: "Secondary School Certificate (SSC — 10th Board)",
+    school: "Vidyarthi Vikas Vidyalaya, Mohityanche Vadgaon",
+    location: "Maharashtra, India",
+    period: "2020 – 2021",
+    focus: "Maharashtra State Board · 96.2%",
+    description:
+      "Completed Secondary School Certificate (10th Board) examination from the Maharashtra State Board with distinction, achieving 96.2%.",
+    highlights: [
+      "Secured 96.2% with distinction in Maharashtra State Board SSC examination.",
     ],
   },
 ]
@@ -107,7 +140,7 @@ export const experiences: Experience[] = [
     role: "Full Stack Development Intern",
     company: "3W Business Private Limited",
     location: "Remote",
-    period: "Jun 2026 – Aug 2026",
+    period: "Jul 2026 – Aug 2026",
     description:
       "Worked across a multi-repository production ecosystem — React Native CLI mobile app, admin panel, business dashboard, and backend API — hardening security, building a shared design system, and shipping gamification features.",
     tags: ["React Native", "Node.js", "JWT", "Firebase FCM", "Cloudinary", "Git"],
@@ -123,27 +156,30 @@ export const experiences: Experience[] = [
     role: "Vice President of Technology",
     company: "CyberShield — College Cybersecurity Club",
     location: "Pune, India",
-    period: "Oct 2025 – Present",
+    period: "Jan 2025 – Present",
     description:
-      "Leading the technology division of the college cybersecurity club, overseeing technical strategy, event planning, and member mentorship.",
-    tags: ["Cybersecurity", "Leadership", "Mentorship"],
-    highlights: [
-      "Promoted from Director to Vice President of Technology.",
-      "Guiding club members on cybersecurity fundamentals and secure development practices.",
-      "Managing technical infrastructure and knowledge-sharing sessions.",
-    ],
-  },
-  {
-    role: "Director of Technology",
-    company: "CyberShield — College Cybersecurity Club",
-    location: "Pune, India",
-    period: "Jan 2025 – Oct 2025",
-    description:
-      "Served as Director of Technology, contributing to the technical direction and growth of the club.",
-    tags: ["Security", "Community", "Team Leadership"],
-    highlights: [
-      "Assisted in establishing the club's technical foundation.",
-      "Participated in knowledge-sharing and team coordination.",
+      "Leading technical direction, event planning, and secure engineering practices for the college cybersecurity club across consecutive leadership tenures.",
+    tags: ["Cybersecurity", "Leadership", "Mentorship", "Team Leadership", "Infrastructure"],
+    roles: [
+      {
+        role: "Vice President of Technology",
+        period: "Oct 2025 – Present",
+        description: "Promoted to lead the technology division, overseeing overall technical strategy, event planning, and student mentorship.",
+        highlights: [
+          "Promoted from Director to Vice President of Technology.",
+          "Guiding club members on cybersecurity fundamentals and secure development practices.",
+          "Managing technical infrastructure and hands-on knowledge-sharing sessions.",
+        ],
+      },
+      {
+        role: "Director of Technology",
+        period: "Jan 2025 – Oct 2025",
+        description: "Contributed to establishing the club's technical foundation and initial community operations.",
+        highlights: [
+          "Assisted in establishing the club's technical foundation.",
+          "Participated in technical workshops and team coordination.",
+        ],
+      },
     ],
   },
 ]
